@@ -220,7 +220,7 @@ outlines:
       - type: rectangle
         anchor:
           ref: inner_line_bottom
-          shift: [14, 0]
+          shift: [14, 8]
         size: [11, 39]
         operation: subtract
 pcbs:
@@ -241,11 +241,29 @@ pcbs:
         type: oled
         anchor:
           ref: inner_line_bottom
-          shift: [25, 35]
-          rotate: -90
+          shift: [14, 8]
+          rotate: 90
         nets:
-          SDA: P4
-          SCK: P5
+          SDA: P2
+          SCL: P3
+      rstbtn:
+        type: mybutton
+        anchor:
+          ref: inner_line_bottom
+          shift: [16, 0]
+          rotate: 0
+        nets:
+          from: VCC
+          to: RST
+      jst:
+        type: jstph
+        anchor:
+          ref: inner_line_top
+          shift: [20, 4]
+          rotate: 0
+        nets:
+          neg: GND
+          pos: BAT
 cases:
   base:
     - type: outline

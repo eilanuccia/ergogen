@@ -1,7 +1,7 @@
 module.exports = {
     nets: {
       SDA: 'SDA',
-      SCL: 'SCK',
+      SCL: 'SCL',
       VCC: 'VCC',
       GND: 'GND'
     },
@@ -14,8 +14,13 @@ module.exports = {
         ${p.at /* parametric position */} 
 
         ${'' /* footprint reference */}        
-        (fp_text reference "${p.ref}" (at 0 0) (layer F.SilkS) ${p.ref_hide} (effects (font (size 1.27 1.27) (thickness 0.15))))
-        (fp_text value OLED (at 0 -7.3) (layer F.Fab) (effects (font (size 1 1) (thickness 0.15))))
+        (fp_text value OLED (at 4 4) (layer F.Fab) (effects (font (size 1 1) (thickness 0.15))))
+        
+        ${''/* component outline */}
+        (fp_line (start -0.5 11.5) (end 38.5 11.5) (layer F.SilkS) (width 0.15))
+        (fp_line (start 38.5 11.5) (end 38.5 0.5) (layer F.SilkS) (width 0.15))
+        (fp_line (start 38.5 0.5) (end -0.5 0.5) (layer F.SilkS) (width 0.15))
+        (fp_line (start -0.5 0.5) (end -0.5 11.5) (layer F.SilkS) (width 0.15))
 
         ${'' /* pins */}
         (pad 4 thru_hole oval (at 1.6 2.18 ${p.rot+270}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)

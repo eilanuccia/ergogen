@@ -41,6 +41,7 @@ module.exports = {
       ${'' /* footprint reference */}
       (fp_text reference "${p.ref}" (at 0 0) (layer F.SilkS) ${p.ref_hide} (effects (font (size 1.27 1.27) (thickness 0.15))))
       (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+      (fp_text user nice!nano (at 13.462 -0.254 ${p.rot + 90}) (layer F.SilkS)(effects (font (size 0.8 0.8) (thickness 0.1))))
     
       ${''/* illustration of the (possible) USB port overhang */}
       (fp_line (start -19.304 -3.81) (end -14.224 -3.81) (layer Dwgs.User) (width 0.15))
