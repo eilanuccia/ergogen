@@ -1,7 +1,7 @@
 module.exports = {
     nets: {
-      SDA: undefined,
-      SCL: undefined,
+      SDA: 'SDA',
+      SCL: 'SCK',
       VCC: 'VCC',
       GND: 'GND'
     },

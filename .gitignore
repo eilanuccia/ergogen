@@ -118,3 +118,6 @@ dist
 # Project specific
 output
 temp*
+.vscode/*
+
+ output/
