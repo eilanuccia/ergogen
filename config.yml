@@ -10,16 +10,6 @@ points:
           keycaps: true
           reverse: true
           hotswap: true
-      mx:
-        type: mx
-        anchor:
-          rotate: 180
-        nets:
-          from: =column_net
-          to: GND
-        params:
-          keycaps: true
-          reverse: true
   zones:
     pinky:
       columns:
@@ -27,10 +17,10 @@ points:
       rows:
         bottom:
           bind: 0
-          column_net: P9
+          column_net: P20
         home:
           bind: 0
-          column_net: P8
+          column_net: P19
     ring:
       anchor:
         ref: pinky_line_bottom
@@ -42,15 +32,15 @@ points:
       rows:
         bottom:
           bind: 0
-          column_net: P9
+          column_net: P20
           column_mark: B
         home:
           bind: 0
-          column_net: P8
+          column_net: P19
           column_mark: H
         top:
           bind: 0
-          column_net: P19
+          column_net: P7
           column_mark: T
     middle:
       anchor:
@@ -62,19 +52,19 @@ points:
       rows:
         bottom:
           bind: 0
-          column_net: P9
+          column_net: P20
           column_mark: B
         home:
           bind: 0
-          column_net: P8
+          column_net: P19
           column_mark: H
         top:
           bind: 0
-          column_net: P19
+          column_net: P7
           column_mark: T
         far:
           bind: 0
-          column_net: P21
+          column_net: P9
           column_mark: F
     index:
       anchor:
@@ -86,19 +76,19 @@ points:
       rows:
         bottom:
           bind: 0
-          column_net: P9
+          column_net: P20
           column_mark: B
         home:
           bind: 0
-          column_net: P8
+          column_net: P19
           column_mark: H
         top:
           bind: 0
-          column_net: P19
+          column_net: P7
           column_mark: T
         far:
           bind: 0
-          column_net: P21
+          column_net: P9
           column_mark: F
     inner:
       anchor:
@@ -109,15 +99,15 @@ points:
       rows:
         bottom:
           bind: 0
-          column_net: P9
+          column_net: P20
           column_mark: B
         home:
           bind: 0
-          column_net: P8
+          column_net: P19
           column_mark: H
         top:
           bind: 0
-          column_net: P19
+          column_net: P7
           column_mark: T
     thumbfan:
       anchor:
@@ -137,7 +127,7 @@ points:
       rows:
         only:
           bind: 0
-          column_net: P10
+          column_net: P21
           column_mark: A
 outlines:
   exports:
