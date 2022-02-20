@@ -1,0 +1,263 @@
+points:
+  key:
+    footprints:
+      mx_hotswap:
+        type: mx
+        nets:
+          from: =column_net
+          to: GND
+        params:
+          keycaps: true
+          reverse: true
+          hotswap: true
+      mx:
+        type: mx
+        anchor:
+          rotate: 180
+        nets:
+          from: =column_net
+          to: GND
+        params:
+          keycaps: true
+          reverse: true
+  zones:
+    pinky:
+      columns:
+        line:
+      rows:
+        bottom:
+          bind: 0
+          column_net: P9
+        home:
+          bind: 0
+          column_net: P8
+    ring:
+      anchor:
+        ref: pinky_line_bottom
+        shift: [22, 0]
+      columns:
+        line:
+          stagger: 4
+          rotate: -4
+      rows:
+        bottom:
+          bind: 0
+          column_net: P9
+          column_mark: B
+        home:
+          bind: 0
+          column_net: P8
+          column_mark: H
+        top:
+          bind: 0
+          column_net: P19
+          column_mark: T
+    middle:
+      anchor:
+        ref: ring_line_bottom
+        shift: [21, 1]
+        rotate: -2
+      columns:
+        line:
+      rows:
+        bottom:
+          bind: 0
+          column_net: P9
+          column_mark: B
+        home:
+          bind: 0
+          column_net: P8
+          column_mark: H
+        top:
+          bind: 0
+          column_net: P19
+          column_mark: T
+        far:
+          bind: 0
+          column_net: P21
+          column_mark: F
+    index:
+      anchor:
+        ref: middle_line_bottom
+        shift: [21, 1]
+        rotate: -1
+      columns:
+        line:
+      rows:
+        bottom:
+          bind: 0
+          column_net: P9
+          column_mark: B
+        home:
+          bind: 0
+          column_net: P8
+          column_mark: H
+        top:
+          bind: 0
+          column_net: P19
+          column_mark: T
+        far:
+          bind: 0
+          column_net: P21
+          column_mark: F
+    inner:
+      anchor:
+        ref: index_line_bottom
+        shift: [cx+1, 0]
+      columns:
+        line:
+      rows:
+        bottom:
+          bind: 0
+          column_net: P9
+          column_mark: B
+        home:
+          bind: 0
+          column_net: P8
+          column_mark: H
+        top:
+          bind: 0
+          column_net: P19
+          column_mark: T
+    thumbfan:
+      anchor:
+        ref: inner_line_bottom
+        shift: [-24, -24]
+        rotate: -20
+      columns:
+        near:
+        home:
+          stagger: -2
+          rotate: -11
+          spread: 22
+        far:
+          stagger: -2
+          rotate: -12
+          spread: 22
+      rows:
+        only:
+          bind: 0
+          column_net: P10
+          column_mark: A
+outlines:
+  exports:
+    raw:
+      - type: keys
+        side: left
+        size: [25, 25]
+        corner: 1
+    poly_in:
+      - type: polygon
+        points:
+          - ref: pinky_line_bottom
+            shift: [-11, -11]
+          - ref: pinky_line_home
+            shift: [-11, 16]
+          - ref: middle_line_far
+            shift: [-11, 14]
+          - ref: inner_line_home
+            shift: [30, 53]
+          - ref: thumbfan_far_only
+            shift: [11, 11]
+          - ref: thumbfan_far_only
+            shift: [11, -11]
+          - ref: thumbfan_home_only
+            shift: [11, -11]
+          - ref: thumbfan_near_only
+            shift: [11, -11]
+          - ref: thumbfan_near_only
+            shift: [-11, -11]
+    poly_out:
+      - type: polygon
+        points:
+          - ref: pinky_line_bottom
+            shift: [-14, -13]
+          - ref: pinky_line_home
+            shift: [-14, 18]
+          - ref: middle_line_far
+            shift: [-12, 17]
+          - ref: inner_line_home
+            shift: [33, 56]
+          - ref: thumbfan_far_only
+            shift: [14, 12]
+          - ref: thumbfan_far_only
+            shift: [14, -14]
+          - ref: thumbfan_home_only
+            shift: [11, -14]
+          - ref: thumbfan_near_only
+            shift: [11, -14]
+          - ref: thumbfan_near_only
+            shift: [-11, -14]
+    panel:
+      - type: outline
+        name: poly_in
+        fillet: 5
+    keycap_outlines:
+      - type: keys
+        side: left
+        size: [19, 19]
+        bound: false
+    sides:
+      - type: outline
+        name: poly_out
+        fillet: 5
+      - type: outline
+        name: panel
+        operation: subtract
+    preview:
+      - type: outline
+        name: panel
+        fillet: 5
+      - type: outline
+        name: keycap_outlines
+        operation: subtract
+      - type: rectangle
+        anchor:
+          ref: index_line_top
+          shift: [13, 12]
+        size: [33, 18]
+        operation: subtract
+      - type: rectangle
+        anchor:
+          ref: inner_line_bottom
+          shift: [14, 0]
+        size: [11, 39]
+        operation: subtract
+pcbs:
+  eilan:
+    outlines:
+      main:
+        outline: panel
+    footprints:
+      nicenano:
+        type: nicenano
+        anchor:
+          ref: index_line_top
+          shift: [28, 21]
+          rotate: -180
+        params:
+          orientation: up
+      display:
+        type: oled
+        anchor:
+          ref: inner_line_bottom
+          shift: [25, 35]
+          rotate: -90
+        nets:
+          SDA: P4
+          SCK: P5
+cases:
+  base:
+    - type: outline
+      name: panel
+      extrude: 1
+  cutout:
+    - type: case
+      name: base
+    - type: outline
+      name: keycap_outlines
+      operation: subtract
+  sides:
+    - type: outline
+      name: sides
+      extrude: 1
