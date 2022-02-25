@@ -121,3 +121,5 @@ temp*
 .vscode/*
 
  output/
+
+outputex/

@@ -21,7 +21,8 @@ module.exports = {
       class: 'S',
       hotswap: false,
       reverse: false,
-      keycaps: false
+      keycaps: false,
+      mark: undefined
   },
   body: p => {
     const standard = `
@@ -30,7 +31,7 @@ module.exports = {
 
       ${'' /* footprint reference */}
       (fp_text reference "${p.ref}" (at 0 0) (layer F.SilkS) ${p.ref_hide} (effects (font (size 1.27 1.27) (thickness 0.15))))
-      (fp_text value "" (at 0 0) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
+      (fp_text value "${ p.param.mark }" (at 0 5) (layer F.SilkS) hide (effects (font (size 1.27 1.27) (thickness 0.15))))
 
       ${''/* corner marks */}
       (fp_line (start -7 -6) (end -7 -7) (layer Dwgs.User) (width 0.15))

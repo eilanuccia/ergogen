@@ -5,26 +5,46 @@ points:
         type: mx
         nets:
           from: =column_net
-          to: GND
+          to: =row_net
         params:
           keycaps: true
           reverse: true
           hotswap: true
+          mark: =column_mark
+      diode:
+        type: diode
+        anchor:
+          rotate: 0
+          shift: [ 7, 10 ]
+        nets:
+          from: =column_net
+          to: =row_net
+        params:
+          via_in_pad: true
+          through_hole: false
+          mark: =row_mark
   zones:
     pinky:
+      anchor:
+        rotate: 7
       columns:
         line:
       rows:
         bottom:
           bind: 0
-          column_net: P20
+          row_net: P10
+          row_mark: B
         home:
           bind: 0
-          column_net: P19
+          row_net: P16
+          row_mark: H
+      key:
+        column_net: P9
+        column_mark: P
     ring:
       anchor:
         ref: pinky_line_bottom
-        shift: [22, 0]
+        shift: [23, 0]
       columns:
         line:
           stagger: 4
@@ -32,83 +52,95 @@ points:
       rows:
         bottom:
           bind: 0
-          column_net: P20
-          column_mark: B
+          row_net: P10
+          row_mark: B
         home:
           bind: 0
-          column_net: P19
-          column_mark: H
+          row_net: P16
+          row_mark: H
         top:
           bind: 0
-          column_net: P7
-          column_mark: T
+          row_net: P14
+          row_mark: T
+      key:
+        column_net: P8
+        column_mark: R
     middle:
       anchor:
         ref: ring_line_bottom
-        shift: [21, 1]
+        shift: [22, 1]
         rotate: -2
       columns:
         line:
       rows:
         bottom:
           bind: 0
-          column_net: P20
-          column_mark: B
+          row_net: P10
+          row_mark: B
         home:
           bind: 0
-          column_net: P19
-          column_mark: H
+          row_net: P16
+          row_mark: H
         top:
           bind: 0
-          column_net: P7
-          column_mark: T
+          row_net: P14
+          row_mark: T
         far:
           bind: 0
-          column_net: P9
-          column_mark: F
+          row_net: P15
+          row_mark: F
+      key:
+        column_net: P7
+        column_mark: M
     index:
       anchor:
         ref: middle_line_bottom
-        shift: [21, 1]
+        shift: [22, 1]
         rotate: -1
       columns:
         line:
       rows:
         bottom:
           bind: 0
-          column_net: P20
-          column_mark: B
+          row_net: P10
+          row_mark: B
         home:
           bind: 0
-          column_net: P19
-          column_mark: H
+          row_net: P16
+          row_mark: H
         top:
           bind: 0
-          column_net: P7
-          column_mark: T
+          row_net: P14
+          row_mark: T
         far:
           bind: 0
-          column_net: P9
-          column_mark: F
+          row_net: P15
+          row_mark: F
+      key:
+        column_net: P6
+        column_mark: I
     inner:
       anchor:
         ref: index_line_bottom
-        shift: [cx+1, 0]
+        shift: [22, 0]
       columns:
         line:
       rows:
         bottom:
           bind: 0
-          column_net: P20
-          column_mark: B
+          row_net: P10
+          row_mark: B
         home:
           bind: 0
-          column_net: P19
-          column_mark: H
+          row_net: P16
+          row_mark: H
         top:
           bind: 0
-          column_net: P7
-          column_mark: T
+          row_net: P14
+          row_mark: T
+      key:
+        column_net: P5
+        column_mark: J
     thumbfan:
       anchor:
         ref: inner_line_bottom
@@ -116,19 +148,29 @@ points:
         rotate: -20
       columns:
         near:
+          key:
+            column_net: P7
+            column_mark: M
         home:
           stagger: -2
           rotate: -11
           spread: 22
+          key:
+            column_net: P6
+            column_mark: I
         far:
           stagger: -2
           rotate: -12
           spread: 22
+          key:
+            column_net: P5
+            column_mark: J
       rows:
         only:
           bind: 0
-          column_net: P21
-          column_mark: A
+          row_net: P18
+          row_mark: O
+      
 outlines:
   exports:
     raw:
@@ -148,9 +190,9 @@ outlines:
           - ref: inner_line_home
             shift: [30, 53]
           - ref: thumbfan_far_only
-            shift: [11, 11]
+            shift: [12, 12]
           - ref: thumbfan_far_only
-            shift: [11, -11]
+            shift: [12, -12]
           - ref: thumbfan_home_only
             shift: [11, -11]
           - ref: thumbfan_near_only
@@ -171,13 +213,20 @@ outlines:
           - ref: thumbfan_far_only
             shift: [14, 12]
           - ref: thumbfan_far_only
-            shift: [14, -14]
+            shift: [15, -15]
           - ref: thumbfan_home_only
             shift: [11, -14]
           - ref: thumbfan_near_only
             shift: [11, -14]
           - ref: thumbfan_near_only
             shift: [-11, -14]
+    mounting_holes:
+      ring_top:
+        type: circle
+        anchor:
+          ref: inner_line_top
+          shift: [-10, 5]
+        radius: 2.25
     panel:
       - type: outline
         name: poly_in
@@ -217,6 +266,8 @@ pcbs:
   eilan:
     outlines:
       main:
+        anchor: 
+
         outline: panel
     footprints:
       nicenano:
