@@ -4,8 +4,8 @@ points:
       mx_hotswap:
         type: mx
         nets:
-          from: =column_net
-          to: =row_net
+          from: =colrow
+          to: =column_net
         params:
           keycaps: true
           reverse: true
@@ -14,10 +14,10 @@ points:
       diode:
         type: diode
         anchor:
-          rotate: 0
+          rotate: 180
           shift: [ 7, 10 ]
         nets:
-          from: =column_net
+          from: =colrow
           to: =row_net
         params:
           via_in_pad: true
@@ -32,7 +32,7 @@ points:
       rows:
         bottom:
           bind: 0
-          row_net: P10
+          row_net: P14
           row_mark: B
         home:
           bind: 0
@@ -52,7 +52,7 @@ points:
       rows:
         bottom:
           bind: 0
-          row_net: P10
+          row_net: P14
           row_mark: B
         home:
           bind: 0
@@ -60,7 +60,7 @@ points:
           row_mark: H
         top:
           bind: 0
-          row_net: P14
+          row_net: P10
           row_mark: T
       key:
         column_net: P8
@@ -75,7 +75,7 @@ points:
       rows:
         bottom:
           bind: 0
-          row_net: P10
+          row_net: P14
           row_mark: B
         home:
           bind: 0
@@ -83,11 +83,11 @@ points:
           row_mark: H
         top:
           bind: 0
-          row_net: P14
+          row_net: P10
           row_mark: T
         far:
           bind: 0
-          row_net: P15
+          row_net: P04
           row_mark: F
       key:
         column_net: P7
@@ -102,7 +102,7 @@ points:
       rows:
         bottom:
           bind: 0
-          row_net: P10
+          row_net: P14
           row_mark: B
         home:
           bind: 0
@@ -110,11 +110,11 @@ points:
           row_mark: H
         top:
           bind: 0
-          row_net: P14
+          row_net: P10
           row_mark: T
         far:
           bind: 0
-          row_net: P15
+          row_net: P04
           row_mark: F
       key:
         column_net: P6
@@ -128,7 +128,7 @@ points:
       rows:
         bottom:
           bind: 0
-          row_net: P10
+          row_net: P14
           row_mark: B
         home:
           bind: 0
@@ -136,7 +136,7 @@ points:
           row_mark: H
         top:
           bind: 0
-          row_net: P14
+          row_net: P10
           row_mark: T
       key:
         column_net: P5
