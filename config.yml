@@ -170,7 +170,6 @@ points:
           bind: 0
           row_net: P18
           row_mark: O
-      
 outlines:
   exports:
     raw:
@@ -263,11 +262,10 @@ outlines:
         size: [11, 39]
         operation: subtract
 pcbs:
-  eilan:
+  Oakeyboard:
     outlines:
       main:
         anchor: 
-
         outline: panel
     footprints:
       nicenano:
@@ -288,10 +286,10 @@ pcbs:
           SDA: P2
           SCL: P3
       rstbtn:
-        type: mybutton
+        type: reset
         anchor:
           ref: inner_line_bottom
-          shift: [16, 0]
+          shift: [16, -4]
           rotate: 0
         nets:
           from: VCC
@@ -305,6 +303,41 @@ pcbs:
         nets:
           neg: GND
           pos: BAT
+      hole_bottom_left:
+        type: mountinghole
+        anchor:
+          ref: ring_line_bottom
+          shift: [-5, -18]
+      hole_middle_left:
+        type: mountinghole
+        anchor:
+          ref: pinky_line_home
+          shift: [-6, 14]
+      hole_top_left:
+        type: mountinghole
+        anchor:
+          ref: middle_line_far
+          shift: [-15, 4]
+      hole_top_right:
+        type: mountinghole
+        anchor:
+          ref: index_line_far
+          shift: [49, 11]
+      hole_middle_right:
+        type: mountinghole
+        anchor:
+          ref: index_line_top
+          shift: [49, 11]
+      hole_bottom_right:
+        type: mountinghole
+        anchor:
+          ref: index_line_bottom
+          shift: [49, 4]
+      hole_bbottom_right:
+        type: mountinghole
+        anchor:
+          ref: index_line_bottom
+          shift: [49,-35]
 cases:
   base:
     - type: outline
@@ -320,3 +353,6 @@ cases:
     - type: outline
       name: sides
       extrude: 1
+meta:
+  version: v1.0.0
+  author: Eilan.

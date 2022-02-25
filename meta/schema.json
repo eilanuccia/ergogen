@@ -309,7 +309,7 @@
                                 "type": {
                                     "description": "Footprint type",
                                     "type": "string",
-                                    "enum": ["mx", "alps", "choc", "diode", "promicro", "nicenano",  "slider", "button", "mybutton", "rgb", "jstph", "pin", "hole", "pad", "reset", "oled"]
+                                    "enum": ["mx", "alps", "choc", "diode", "promicro", "nicenano", "mountinghole", "slider", "button", "reset", "rgb", "jstph", "pin", "hole", "pad", "oled"]
                                 },
                                 "anchor": {
                                     "description": "Anchor",
