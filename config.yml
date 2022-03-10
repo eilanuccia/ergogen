@@ -261,6 +261,31 @@ outlines:
           shift: [14, 8]
         size: [11, 39]
         operation: subtract
+    top: 
+      - type: outline
+        name: panel
+        fillet: 5
+      - type: outline
+        name: keycap_outlines
+        operation: subtract
+      - type: rectangle
+        anchor:
+          ref: index_line_top
+          shift: [11, 10]
+        size: [50, 40]
+        operation: subtract
+      - type: rectangle
+        anchor:
+          ref: inner_line_bottom
+          shift: [11, -30]
+        size: [80, 80]
+        operation: subtract
+      - type: rectangle
+        anchor:
+          ref: thumbfan_far_only
+          shift: [-27, 10]
+        size: [28, 14]
+        operation: add
 pcbs:
   Oakeyboard:
     outlines:
@@ -353,6 +378,10 @@ cases:
     - type: outline
       name: sides
       extrude: 1
+  top:
+    - type: outline
+      name: top
+      extrude: 2
 meta:
   version: v1.0.0
   author: Eilan.
