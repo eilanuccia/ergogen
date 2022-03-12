@@ -310,6 +310,18 @@ outlines:
       - type: outline
         name: panel
         operation: subtract
+      - type: rectangle
+        anchor:
+          ref: pinky_line_bottom
+          shift: [-15, 10]
+        size: [5, 5]
+        operation: subtract
+      - type: rectangle
+        anchor:
+          ref: index_line_far
+          shift: [50, -5]
+        size: [10, 5]
+        operation: subtract 
     case_top: 
       - type: outline
         name: panel
