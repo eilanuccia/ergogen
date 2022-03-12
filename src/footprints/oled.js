@@ -22,6 +22,11 @@ module.exports = {
         (fp_line (start 38.5 0.5) (end -0.5 0.5) (layer F.SilkS) (width 0.15))
         (fp_line (start -0.5 0.5) (end -0.5 11.5) (layer F.SilkS) (width 0.15))
 
+        (fp_line (start -0.5 11.5) (end 38.5 11.5) (layer B.SilkS) (width 0.15))
+        (fp_line (start 38.5 11.5) (end 38.5 0.5) (layer B.SilkS) (width 0.15))
+        (fp_line (start 38.5 0.5) (end -0.5 0.5) (layer B.SilkS) (width 0.15))
+        (fp_line (start -0.5 0.5) (end -0.5 11.5) (layer B.SilkS) (width 0.15))
+
         ${'' /* pins */}
         (pad 4 thru_hole oval (at 1.6 2.18 ${p.rot+270}) (size 1.7 1.7) (drill 1) (layers *.Cu *.Mask)
         ${p.net.SDA.str})

@@ -4,7 +4,7 @@ points:
       mx_hotswap:
         type: mx
         nets:
-          from: =colrow
+          from: =name
           to: =column_net
         params:
           keycaps: true
@@ -17,7 +17,7 @@ points:
           rotate: 180
           shift: [ 7, 10 ]
         nets:
-          from: =colrow
+          from: =name
           to: =row_net
         params:
           via_in_pad: true
@@ -32,11 +32,11 @@ points:
       rows:
         bottom:
           bind: 0
-          row_net: P14
+          row_net: P20
           row_mark: B
         home:
           bind: 0
-          row_net: P16
+          row_net: P19
           row_mark: H
       key:
         column_net: P9
@@ -52,11 +52,11 @@ points:
       rows:
         bottom:
           bind: 0
-          row_net: P14
+          row_net: P20
           row_mark: B
         home:
           bind: 0
-          row_net: P16
+          row_net: P19
           row_mark: H
         top:
           bind: 0
@@ -75,11 +75,11 @@ points:
       rows:
         bottom:
           bind: 0
-          row_net: P14
+          row_net: P20
           row_mark: B
         home:
           bind: 0
-          row_net: P16
+          row_net: P19
           row_mark: H
         top:
           bind: 0
@@ -87,7 +87,7 @@ points:
           row_mark: T
         far:
           bind: 0
-          row_net: P04
+          row_net: P4
           row_mark: F
       key:
         column_net: P7
@@ -102,11 +102,11 @@ points:
       rows:
         bottom:
           bind: 0
-          row_net: P14
+          row_net: P20
           row_mark: B
         home:
           bind: 0
-          row_net: P16
+          row_net: P19
           row_mark: H
         top:
           bind: 0
@@ -114,7 +114,7 @@ points:
           row_mark: T
         far:
           bind: 0
-          row_net: P04
+          row_net: P4
           row_mark: F
       key:
         column_net: P6
@@ -128,11 +128,11 @@ points:
       rows:
         bottom:
           bind: 0
-          row_net: P14
+          row_net: P20
           row_mark: B
         home:
           bind: 0
-          row_net: P16
+          row_net: P19
           row_mark: H
         top:
           bind: 0
@@ -168,7 +168,7 @@ points:
       rows:
         only:
           bind: 0
-          row_net: P18
+          row_net: P21
           row_mark: O
 outlines:
   exports:
@@ -317,7 +317,7 @@ pcbs:
           shift: [16, -4]
           rotate: 0
         nets:
-          from: VCC
+          from: GND
           to: RST
       jst:
         type: jstph
