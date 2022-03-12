@@ -1,6 +1,11 @@
 units:
-  mxw: 15.6
-  mxwb: 14.6
+  mx_w: 15.6
+  mx_w_bottom: 14.6
+  mx_h_bottom: 5
+  pcb_h: 1.6
+  case_h: 2
+  base_h: pcb_h + case_h + mx_h_bottom
+  r_holes: 1.125
 points:
   key:
     footprints:
@@ -222,22 +227,22 @@ outlines:
             shift: [11, -14]
           - ref: thumbfan_near_only
             shift: [-11, -14]
-    montingholes:
+    mountingholes:
       - type: circle
         anchor:
           ref: ring_line_bottom
           shift: [-5, -18]
-        radius: 2.25
+        radius: r_holes
       - type: circle
         anchor:
           ref: pinky_line_home
           shift: [-6, 14]
-        radius: 2.25
+        radius: r_holes
       - type: circle
         anchor:
           ref: middle_line_far
           shift: [-15, 4]
-        radius: 2.25
+        radius: r_holes
       - type: circle
         anchor:
           ref: index_line_far
@@ -257,17 +262,18 @@ outlines:
         anchor:
           ref: index_line_bottom
           shift: [49,-35]
-        radius: 2.25
+        radius: r_holes
+    spacers:
       - type: circle
         anchor:
           ref: index_line_home
           shift: [-11, -10]
-        radius: 2.25
+        radius: r_holes
       - type: circle
         anchor:
           ref: index_line_far
           shift: [-11, -10]
-        radius: 2.25
+        radius: r_holes
     panel:
       - type: outline
         name: poly_in
@@ -287,7 +293,7 @@ outlines:
     keycap_mx:
       - type: keys
         side: left
-        size: [mxwb, mxwb]
+        size: [mx_w_bottom, mx_w_bottom]
         bound: false
     sides:
       - type: outline
