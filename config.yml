@@ -4,7 +4,7 @@ units:
   mx_h_bottom: 5
   pcb_h: 1.6
   case_h: 2
-  base_h: pcb_h + case_h + mx_h_bottom
+  base_sides_h: pcb_h + case_h + mx_h_bottom
   r_holes: 1.125
 points:
   key:
@@ -247,61 +247,36 @@ outlines:
         anchor:
           ref: index_line_far
           shift: [49, 11]
-        radius: 2.25
+        radius: r_holes
       - type: circle
         anchor:
           ref: index_line_top
           shift: [49, 11]
-        radius: 2.25
+        radius: r_holes
       - type: circle
         anchor:
           ref: index_line_bottom
           shift: [49, 4]
-        radius: 2.25
+        radius: r_holes
       - type: circle
         anchor:
           ref: index_line_bottom
           shift: [49,-35]
         radius: r_holes
-    spacers:
-      - type: circle
-        anchor:
-          ref: index_line_home
-          shift: [-11, -10]
-        radius: r_holes
-      - type: circle
-        anchor:
-          ref: index_line_far
-          shift: [-11, -10]
-        radius: r_holes
     panel:
       - type: outline
         name: poly_in
         fillet: 5
-    case_base: 
-      - type: outline
-        name: poly_out
-        fillet: 5
-      - type: outline
-        name: montingholes
-        operation: subtract
     keycap_outlines:
       - type: keys
         side: left
         size: [19, 19]
-        bound: false
+        bound: false   
     keycap_mx:
       - type: keys
         side: left
         size: [mx_w_bottom, mx_w_bottom]
         bound: false
-    sides:
-      - type: outline
-        name: poly_out
-        fillet: 5
-      - type: outline
-        name: panel
-        operation: subtract
     preview:
       - type: outline
         name: panel
@@ -321,7 +296,21 @@ outlines:
           shift: [14, 8]
         size: [11, 39]
         operation: subtract
-    top: 
+    case_base: 
+      - type: outline
+        name: poly_out
+        fillet: 5
+      - type: outline
+        name: mountingholes
+        operation: subtract
+    case_base_sides:
+      - type: outline
+        name: poly_out
+        fillet: 5
+      - type: outline
+        name: panel
+        operation: subtract
+    case_top: 
       - type: outline
         name: panel
         fillet: 5
@@ -347,8 +336,30 @@ outlines:
         size: [28, 14]
         operation: add
       - type: outline
-        name: montingholes
+        name: mountingholes
         operation: subtract  
+    case_top_spacer:
+      - type: outline
+        name: keycap_outlines
+      - type: outline
+        name: keycap_mx
+        operation: subtract
+cases:
+  base:
+    - type: outline
+      name: case_base
+      extrude: case_h
+    - type: outline
+      name: case_base_sides
+      extrude: base_sides_h
+  top:
+    - type: outline
+      name: case_top
+      extrude: case_h
+    - type: outline
+      name: case_top_spacer
+      extrude: mx_h_bottom
+
 pcbs:
   Oakeyboard:
     outlines:
@@ -426,22 +437,7 @@ pcbs:
         anchor:
           ref: index_line_bottom
           shift: [49,-35]
-cases:
-  base:
-    - type: outline
-      name: panel
-      extrude: 1
-    - type: outline
-      name: panel
-      extrude: 1
-  sides:
-    - type: outline
-      name: sides
-      extrude: 1
-  top:
-    - type: outline
-      name: top
-      extrude: 2
+
 meta:
   version: v1.0.0
   author: Eilan.
