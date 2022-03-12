@@ -1,3 +1,6 @@
+units:
+  mxw: 15.6
+  mxwb: 14.6
 points:
   key:
     footprints:
@@ -219,21 +222,72 @@ outlines:
             shift: [11, -14]
           - ref: thumbfan_near_only
             shift: [-11, -14]
-    mounting_holes:
-      ring_top:
-        type: circle
+    montingholes:
+      - type: circle
         anchor:
-          ref: inner_line_top
-          shift: [-10, 5]
+          ref: ring_line_bottom
+          shift: [-5, -18]
+        radius: 2.25
+      - type: circle
+        anchor:
+          ref: pinky_line_home
+          shift: [-6, 14]
+        radius: 2.25
+      - type: circle
+        anchor:
+          ref: middle_line_far
+          shift: [-15, 4]
+        radius: 2.25
+      - type: circle
+        anchor:
+          ref: index_line_far
+          shift: [49, 11]
+        radius: 2.25
+      - type: circle
+        anchor:
+          ref: index_line_top
+          shift: [49, 11]
+        radius: 2.25
+      - type: circle
+        anchor:
+          ref: index_line_bottom
+          shift: [49, 4]
+        radius: 2.25
+      - type: circle
+        anchor:
+          ref: index_line_bottom
+          shift: [49,-35]
+        radius: 2.25
+      - type: circle
+        anchor:
+          ref: index_line_home
+          shift: [-11, -10]
+        radius: 2.25
+      - type: circle
+        anchor:
+          ref: index_line_far
+          shift: [-11, -10]
         radius: 2.25
     panel:
       - type: outline
         name: poly_in
         fillet: 5
+    case_base: 
+      - type: outline
+        name: poly_out
+        fillet: 5
+      - type: outline
+        name: montingholes
+        operation: subtract
     keycap_outlines:
       - type: keys
         side: left
         size: [19, 19]
+        bound: false
+    keycap_mx:
+      - type: keys
+        side: left
+        size: [mxwb, mxwb]
         bound: false
     sides:
       - type: outline
@@ -266,7 +320,7 @@ outlines:
         name: panel
         fillet: 5
       - type: outline
-        name: keycap_outlines
+        name: keycap_mx
         operation: subtract
       - type: rectangle
         anchor:
@@ -286,6 +340,9 @@ outlines:
           shift: [-27, 10]
         size: [28, 14]
         operation: add
+      - type: outline
+        name: montingholes
+        operation: subtract  
 pcbs:
   Oakeyboard:
     outlines:
@@ -368,12 +425,9 @@ cases:
     - type: outline
       name: panel
       extrude: 1
-  cutout:
-    - type: case
-      name: base
     - type: outline
-      name: keycap_outlines
-      operation: subtract
+      name: panel
+      extrude: 1
   sides:
     - type: outline
       name: sides
