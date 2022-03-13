@@ -2,9 +2,10 @@ units:
   mx_w: 15.6
   mx_w_bottom: 14.6
   mx_h_bottom: 5
+  hotsocket_h: 2
   pcb_h: 1.6
   case_h: 2
-  base_sides_h: pcb_h + case_h + mx_h_bottom
+  base_sides_h: pcb_h + case_h + mx_h_bottom + hotsocket_h
   r_holes: 1.125
 points:
   key:
@@ -361,6 +362,10 @@ cases:
     - type: outline
       name: case_base
       extrude: case_h
+    - type: outline
+      name: case_base_sides
+      extrude: base_sides_h
+  base_sides_only:
     - type: outline
       name: case_base_sides
       extrude: base_sides_h
